@@ -61,12 +61,11 @@ enum CardEncoding {
 class Card {
 
 public:
-  Card(std::string card);
-  Card(int card);
+  explicit Card(std::string card);
+  explicit Card(int card);
 
   int toInt();
   std::string toString();
-  void print();
 
 private:
   CardEncoding value;

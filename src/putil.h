@@ -1,5 +1,5 @@
 #pragma once
-#include "jrank.h"
+#include "jcard.h"
 #include <map>
 #include <string>
 
@@ -8,8 +8,10 @@ using namespace jsolver;
 int cardStrToInt(std::string card);
 int suitToInt(char suit);
 int rankToInt(char rank);
-
-inline const std::map<CardEncoding, std::string> cardToString = {
+std::string cardEncodingToString(CardEncoding card);
+std::string threeCardsToFlop(CardEncoding flop_1, CardEncoding flop_2,
+                             CardEncoding flop_3);
+inline const std::map<jsolver::CardEncoding, std::string> cardToString = {
     {C2, "2c"}, {D2, "2d"}, {H2, "2h"}, {S2, "2s"}, {C3, "3c"}, {D3, "3d"},
     {H3, "3h"}, {S3, "3s"}, {C4, "4c"}, {D4, "4d"}, {H4, "4h"}, {S4, "4s"},
     {C5, "5c"}, {D5, "5d"}, {H5, "5h"}, {S5, "5s"}, {C6, "6c"}, {D6, "6d"},

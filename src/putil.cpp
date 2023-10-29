@@ -1,4 +1,5 @@
 #include "putil.h"
+#include "jcard.h"
 #include <iostream>
 
 int cardStrToInt(std::string card) {
@@ -15,6 +16,23 @@ int cardStrToInt(std::string card) {
 
   return (rankInt - 2) * 4 + suitInt;
 };
+
+std::string threeCardsToFlop(CardEncoding flop_1, CardEncoding flop_2,
+                             CardEncoding flop_3) {
+
+  return cardEncodingToString(flop_1) + cardEncodingToString(flop_2) +
+         cardEncodingToString(flop_3);
+}
+
+std::string cardEncodingToString(CardEncoding card) {
+  auto it = cardToString.find(card);
+
+  if (it != cardToString.end()) {
+    return it->second;
+  } else {
+    return "";
+  }
+}
 
 int suitToInt(char suit) {
   switch (suit) {
